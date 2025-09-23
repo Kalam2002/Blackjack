@@ -35,7 +35,6 @@ function buildDeck() {
   }
 }
 
-// Draw a random card (and remove it from deck)
 function getRandomCard() {
   let index = Math.floor(Math.random() * deck.length)
   let card = deck[index]
@@ -53,7 +52,6 @@ function start() {
 }
 
 function renderGame() {
-  // Show all drawn cards
   cardEl.textContent = "Cards: " + cards.map(c => c.card).join(" , ")
   sumEl.textContent = "Sum: " + sum
   
@@ -68,14 +66,12 @@ function renderGame() {
   }
   messageEl.textContent = message
 }
-
 function newcard() {
   if (isAlive && !hasBlackJack) {
     let card = getRandomCard()
     cards.push(card)
     sum += card.value
 
-    // Handle Ace as 1 if needed
     if (sum > 21) {
       for (let c of cards) {
         if (c.name === "A" && c.value === 11) {
@@ -85,7 +81,6 @@ function newcard() {
         }
       }
     }
-
     renderGame()
   }
 }
