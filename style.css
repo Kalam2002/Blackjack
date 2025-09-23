@@ -26,3 +26,14 @@ button{
     font-size: 1em;
     color: rgb(9, 80, 9);
 }
+footer{
+    font-size: medium;
+    color: rgb(251, 203, 12);                  /* white text */
+    text-align: center;           /* center text */
+    padding: 15px 0;              /* vertical padding */
+    position: fixed;              /* stick to bottom */
+    bottom: 0;
+    width: 100%;                  /* full width */
+    font-family: Arial, sans-serif;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.3);  /* subtle shadow */
+}
