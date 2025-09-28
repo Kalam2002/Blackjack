@@ -17,6 +17,7 @@ body{
 }
 #game-form{
     justify-items: center;
+    padding-top: 20px;
 }
 #message-el{
     font-style: italic;
@@ -74,10 +75,10 @@ button{
     color: rgb(9, 80, 9);
 }
 footer{
-    font-size: medium;
+    font-size:15px;
     color: rgb(251, 203, 12);                  /* white text */
     text-align: center;           /* center text */
-    padding: 15px 0;              /* vertical padding */
+    padding: 0px 0;              /* vertical padding */
     position:fixed;              /* stick to bottom */
     bottom: 0;
     width: 100%;                  /* full width */
