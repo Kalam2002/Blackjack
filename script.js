@@ -50,7 +50,11 @@ function getRandomCard() {
 }
 
 function start() {
-  buildDeck() 
+  buildDeck()
+  if(isAlive && sum==0) {
+    alert("You are already in the game!")
+    return
+  }
   if(player.chips < 10) {
     alert("You don't have enough chips to play!")
     isAlive=false
