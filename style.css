@@ -102,6 +102,9 @@ footer {
 /* --- Media Query for Larger Screens (Tablets and Desktops) --- */
 @media (min-width: 768px) {
     body {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center;
         font-size: 2rem; /* Increase base font size on larger screens */
     }
 }
