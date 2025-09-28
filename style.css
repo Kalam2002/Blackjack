@@ -102,6 +102,6 @@ footer {
 /* --- Media Query for Larger Screens (Tablets and Desktops) --- */
 @media (min-width: 768px) {
     body {
-        font-size: 1.5rem; /* Increase base font size on larger screens */
+        font-size: 2rem; /* Increase base font size on larger screens */
     }
 }
