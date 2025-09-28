@@ -51,7 +51,7 @@ function getRandomCard() {
 
 function start() {
   buildDeck()
-  if(isAlive && sum==0) {
+  if(isAlive && sum>0) {
     alert("You are already in the game!")
     return
   }
