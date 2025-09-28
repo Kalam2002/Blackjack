@@ -26,6 +26,13 @@ let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
 let cardEl = document.getElementById("card-el")
 
+let player = {
+  name: "Player",
+  chips: 250
+}
+let playerEl = document.getElementById("player-el")
+playerEl.textContent = "Chips: $" + player.chips 
+
 function buildDeck() {
   deck = []
   for (let suit of suits) {
@@ -35,7 +42,6 @@ function buildDeck() {
   }
 }
 
-// Draw a random card (and remove it from deck)
 function getRandomCard() {
   let index = Math.floor(Math.random() * deck.length)
   let card = deck[index]
@@ -44,24 +50,31 @@ function getRandomCard() {
 }
 
 function start() {
-  buildDeck()             // new shuffled deck
+  buildDeck() 
+  if(player.chips < 10) {
+    alert("You don't have enough chips to play!")
+    isAlive=false
+    return
+  }         
   isAlive = true
   hasBlackJack = false
+  player.chips -=10
+  playerEl.textContent = "Chips: $" + player.chips 
   cards = [getRandomCard(), getRandomCard()]
   sum = cards[0].value + cards[1].value
   renderGame()
 }
 
 function renderGame() {
-  // Show all drawn cards
   cardEl.textContent = "Cards: " + cards.map(c => c.card).join(" , ")
   sumEl.textContent = "Sum: " + sum
-  
   if (sum <= 20) {
     message = "Do you want to draw a new card?"
   } else if (sum === 21) {
     message = "Wohoo! You've got Blackjack!"
     hasBlackJack = true
+    player.chips += 10
+    playerEl.textContent = "Chips: $" + player.chips 
   } else {
     message = "You're out of the game!"
     isAlive = false
@@ -75,7 +88,6 @@ function newcard() {
     cards.push(card)
     sum += card.value
 
-    // Handle Ace as 1 if needed
     if (sum > 21) {
       for (let c of cards) {
         if (c.name === "A" && c.value === 11) {
@@ -85,7 +97,6 @@ function newcard() {
         }
       }
     }
-
     renderGame()
   }
 }
